@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<<<<<<< HEAD
     <title>Laravel Cars</title>
-=======
-    <title>Document</title>
->>>>>>> 694aabcee30c6168bdae4c24e6a4d1a2e2a70a8f
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
