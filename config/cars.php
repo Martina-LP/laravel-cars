@@ -81,12 +81,4 @@ return [
         "model" => "Viper",
         "cc" => "500cc"
     ],
-    [
-        "brand" => "Fiat",
-        "description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque, nisl sed pulvinar condimentum, quam magna dignissim arcu, vitae hendrerit dolor magna sit amet leo. Praesent pretium nunc velit, pulvinar fermentum massa volutpat quis. Nam ut odio semper, tempus magna et, tristique justo. Duis a elementum lacus. Ut pretium tortor id enim interdum, sed tempor ligula malesuada. Morbi nisl sapien, euismod ut feugiat a, gravida sed justo. Ut ut dui non risus volutpat maximus. Sed turpis diam, rhoncus sit amet posuere rutrum, laoreet eget tellus. In nulla sapien, suscipit ut ipsum in, malesuada dictum diam. Integer porta ex elit, placerat elementum tellus eleifend ut. Sed aliquam nulla sit amet massa feugiat, sit amet lobortis sapien faucibus. Nulla tempus eros vel dolor aliquam, at cursus lorem scelerisque.",
-        "src" => "https://motori.virgilio.it/wp-content/uploads/sites/4/2021/04/Fiat-Panda-4x4-cingoli.jpg",
-        "price" => "1000000",
-        "model" => "Pandino",
-        "cc" => "5000cc"
-    ],
 ];
