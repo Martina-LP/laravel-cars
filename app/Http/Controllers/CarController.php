@@ -84,4 +84,16 @@ class CarController extends Controller
     {
         //
     }
+
+    protected function getValidationRules()
+    {
+        return [
+        'brand' => 'required|max:30',
+        'description' => 'min:10|max:60000|nullable',
+        'src' => 'required|max:1000',
+        'price' => 'required|numeric|max:14',
+        'model' => 'required|max:100',
+        'cc' => 'required|max:10'
+        ];
+    }
 }
