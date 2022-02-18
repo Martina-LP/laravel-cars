@@ -1,0 +1,52 @@
+header{
+    text-transform: capitalize;
+    font-size: 25px;
+    padding: 50px 0;
+    border-bottom: 2px solid coral;
+
+    .header-position{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo{
+            font-size: 50px;
+            color: coral;
+        }
+
+        .nav{
+            display: flex;
+            align-items: center;
+            a{
+                text-decoration: none;
+                color: black;
+                margin: 0 20px;
+
+                &.active{
+                    color: coral;
+                }
+
+                &:hover{
+                    border-bottom: 1px solid;
+                }
+            }
+        }
+
+        .searchbar{
+
+            input{
+                width: 270px;
+                text-align: center;
+                font-size: 20px;
+                border: none;
+                color: black;
+            }
+
+            .search{
+                cursor: pointer;
+                color: coral;
+                margin-left: -25px;
+            }
+        }
+    }
+}

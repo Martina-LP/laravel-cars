@@ -16,7 +16,7 @@ class CarController extends Controller
     {
         $cars = Car::all();
 
-        return view('index', compact('cars'));
+        return view('cars.index', compact('cars'));
     }
 
     /**
@@ -116,7 +116,7 @@ class CarController extends Controller
         'brand' => 'required|max:30',
         'description' => 'min:10|max:60000|nullable',
         'src' => 'required|max:1000',
-        'price' => 'required|numeric|max:14',
+        'price' => 'required|max:14',
         'model' => 'required|max:100',
         'cc' => 'required|max:10'
         ];

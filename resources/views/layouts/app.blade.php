@@ -4,28 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel Cars</title>
+    <title>@yield('page_title')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Lista Auto</a>
-                    <a class="nav-link" aria-current="page" href="#">Crea Nuove Auto</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-    </header>
 
-    <main>
-        @yield('main_content')
-    </main>
+  @include('partials.header')
+  
+  <main>
+      @yield('main_content')
+  </main>
+
+  @include('partials.footer')
 
 </body>
 </html>

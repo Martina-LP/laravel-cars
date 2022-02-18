@@ -1,6 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-}
+@import 'partials/_variables';
+@import 'partials/_generals';
+@import 'partials/_header';
+@import 'partials/_main';
+@import 'partials/_footer';
