@@ -26,7 +26,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        return view('cars.create');
     }
 
     /**
@@ -37,7 +37,17 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+
+        $request->validate($this->getValidationRules());
+
+        $new_car = new Car();
+
+        $new_car->fill($form_data);
+
+        $new_car->save();
+
+        return redirect()->route('cars.show', ['car' => $new_car->id]);
     }
 
     /**
@@ -46,9 +56,9 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Car $car)
     {
-        //
+        return view('cars.show', compact('car'));
     }
 
     /**
@@ -59,7 +69,9 @@ class CarController extends Controller
      */
     public function edit($id)
     {
-        //
+        $car = Car::findOrFail($id);
+
+        return view('cars.edit', compact('car'));
     }
 
     /**
@@ -71,7 +83,15 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $form_data = $request->all();
+
+        $request->validate($this->getValidationRules());
+
+        $update_car = Car::findOrFail($id);
+
+        $update_car->update($form_data);
+
+        return redirect()->route('cars.show', ['car' => $update_car->id]);
     }
 
     /**
@@ -82,6 +102,23 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $car_to_delete = Car::findOrFail($id);
+        $car_to_delete->delete();
+
+        return redirect()->route('cars.index');
+    }
+
+    //Funzione di validazione
+
+    protected function getValidationRules()
+    {
+        return [
+        'brand' => 'required|max:30',
+        'description' => 'min:10|max:60000|nullable',
+        'src' => 'required|max:1000',
+        'price' => 'required|numeric|max:14',
+        'model' => 'required|max:100',
+        'cc' => 'required|max:10'
+        ];
     }
 }
