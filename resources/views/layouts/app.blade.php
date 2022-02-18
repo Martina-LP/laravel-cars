@@ -15,7 +15,7 @@
                 <ul class="navbar-nav">
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">Lista Auto</a>
-                    <a class="nav-link" aria-current="page" href="#">Crea Nuove Auto</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('cars.create') }}">Crea Nuove Auto</a>
                   </li>
                 </ul>
               </div>
