@@ -11,7 +11,7 @@
             @foreach ($cars as $car)
             {{-- Single Comic --}}
             <div class="single-car">
-                <a href="{{  route('cars.show', ['car' => $car->id]) }}">
+                <a href="{{  route('admin.cars.show', ['car' => $car->id]) }}">
                     <div class="car-src">
                         <img src="{{$car->src}}" alt="{{$car->brand}}">
                     </div>

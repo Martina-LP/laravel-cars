@@ -14,7 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('welcome');
+})->name('welcome');
 
-Route::resource('cars', 'CarController');
+Route::middleware('auth')
+        ->namespace('Admin')
+        ->name('admin.')
+        ->prefix('admin')
+        ->group(function(){
+            Route::resource('cars', 'CarController');
+        });
+
+Auth::routes();

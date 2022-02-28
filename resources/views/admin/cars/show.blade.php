@@ -28,10 +28,10 @@
                 </div>
             </div>
             <div class="button">
-                <a href="{{ route('cars.edit', ['car' => $car['id']])}}">
+                <a href="{{ route('admin.cars.edit', ['car' => $car['id']])}}">
                     Modifica la macchina
                 </a>
-                <form action="{{ route('cars.destroy', ['car' => $car['id']])}}" method=post>
+                <form action="{{ route('admin.cars.destroy', ['car' => $car['id']])}}" method=post>
                     @csrf
                     @method('DELETE')
                     <input type="submit" value="Elimina la macchina" onclick="return confirm('Sei sicuro di voler cancellare?')"></input>
