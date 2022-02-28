@@ -9,7 +9,7 @@
         <div class="container">
 
             <div class="title">
-                Aggiorna il tuo fumetto
+                Aggiorna i dati della tua macchina
             </div>
 
             <div class="validation">

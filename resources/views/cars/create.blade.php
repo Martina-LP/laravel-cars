@@ -9,7 +9,7 @@
         <div class="container">
 
             <div class="title">
-                Aggiungi il tuo fumetto
+                Aggiungi la tua macchina di lusso
             </div>
 
             <div class="validation">
