@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::resource('cars', 'CarController');
+Route::middleware('auth')
+        ->namespace('Admin')
+        ->name('admin.')
+        ->prefix('admin')
+        ->group(function(){
+            Route::resource('cars', 'CarController');
+        });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -14,14 +14,14 @@
                     </a>
                 </div>
                 <div>
-                    <a href="{{ route('cars.index') }}"
-                    class="{{ Request::route()->getName() === 'cars.index' ? 'active' : '' }}">
+                    <a href="{{ route('admin.cars.index') }}"
+                    class="{{ Request::route()->getName() === 'admin.cars.index' ? 'active' : '' }}">
                         Listino
                     </a>
                 </div>
                 <div>
-                    <a href="{{ route('cars.create') }}"
-                    class="{{ Request::route()->getName() === 'cars.create' ? 'active' : '' }}">
+                    <a href="{{ route('admin.cars.create') }}"
+                    class="{{ Request::route()->getName() === 'admin.cars.create' ? 'active' : '' }}">
                         Aggiungi la tua macchina di lusso
                     </a>
                 </div>

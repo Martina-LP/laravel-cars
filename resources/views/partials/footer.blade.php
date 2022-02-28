@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('cars.index')}}">
+                        <a href="{{ route('admin.cars.index')}}">
                             Tutte le altre ...
                         </a>
                     </li>
