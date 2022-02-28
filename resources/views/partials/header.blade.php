@@ -8,7 +8,7 @@
             <div class="nav">
                 {{-- Nav con Homepage, Listino, Aggiungi --}}
                 <div>
-                    <a href="{{ route('home') }}"
+                    <a href="{{ route('welcome') }}"
                     class="{{ Request::route()->getName() === 'home' ? 'active' : '' }}">
                         Homepage
                     </a>

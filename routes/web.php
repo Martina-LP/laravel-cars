@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('welcome');
+})->name('welcome');
 
 Route::resource('cars', 'CarController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
