@@ -17,6 +17,9 @@
                 <div class="series">
                     {{$car->model}}
                 </div>
+                <div>
+                    Categoria: {{$car->category ? $car->category->name : 'nessuna'}}
+                </div>
                 <div class="type">
                     {{$car->cc}}
                 </div>

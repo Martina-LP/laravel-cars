@@ -21,6 +21,7 @@ class CreateCarsTable extends Migration
             $table->decimal('price', 13, 2)->unsigned();
             $table->string('model', 100);
             $table->string('cc', 10);
+            $table->string('slug', 50)->unique();
             $table->timestamps();
         });
     }

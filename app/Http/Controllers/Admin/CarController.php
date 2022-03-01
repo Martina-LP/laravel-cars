@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Car;
-
+use App\Category;
+use Illuminate\Support\Str;
 class CarController extends Controller
 {
     /**
@@ -27,7 +28,16 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('admin.cars.create');
+
+        $categories = Category::all();
+
+        $data = [
+
+            'categories'=> $categories
+
+        ];
+
+        return view('admin.cars.create', $data);
     }
 
     /**
@@ -45,6 +55,8 @@ class CarController extends Controller
         $new_car = new Car();
 
         $new_car->fill($form_data);
+
+        $new_car->slug = $this->getUniqueSlugFromBrand($new_car->brand);
 
         $new_car->save();
 
@@ -72,7 +84,16 @@ class CarController extends Controller
     {
         $car = Car::findOrFail($id);
 
-        return view('admin.cars.edit', compact('car'));
+        $categories = Category::all();
+
+        $data = [
+
+            'car' => $car,
+            'categories'=> $categories
+
+        ];
+
+        return view('admin.cars.edit', $data);
     }
 
     /**
@@ -89,6 +110,10 @@ class CarController extends Controller
         $request->validate($this->getValidationRules());
 
         $update_car = Car::findOrFail($id);
+
+        if($form_data['brand'] != $update_car->brand ) {
+            $form_data['slug'] = $this->getUniqueSlugFromBrand($form_data['brand']);
+        }
 
         $update_car->update($form_data);
 
@@ -119,7 +144,28 @@ class CarController extends Controller
         'src' => 'required|max:1000',
         'price' => 'required|max:14',
         'model' => 'required|max:100',
-        'cc' => 'required|max:10'
+        'cc' => 'required|max:10',
+        'category_id' => 'exists:categories,id|nullable'
         ];
+    }
+
+    protected function getUniqueSlugFromBrand($brand)
+    {
+
+        $slug = Str::slug($brand);
+        $slug_base = $slug;
+        
+        $car_found = Car::where('slug', '=', $slug)->first();
+        $counter = 1;
+        while($car_found) {
+            // Se esiste, aggiungiamo -1 allo slug
+            // ricontrollo che non esista lo slug con -1, se esiste provo con -2
+            $slug = $slug_base . '-' . $counter;
+            $car_found = Car::where('slug', '=', $slug)->first();
+            $counter++;
+        }
+
+        return $slug;
+
     }
 }

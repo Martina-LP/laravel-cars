@@ -37,6 +37,19 @@
 
                 <input type="text" name="model" placeholder="Che modello è?" value="{{ old('model') }}">
 
+                <label for="category_id">Categoria</label>
+
+                <select name="category_id" id="category_id">
+
+                    <option value="">Nessuna</option>
+
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                
+                    @endforeach
+
+                </select>
+
                 <input type="text" name="cc" placeholder="Che cilindrata ha?" value="{{ old('cc') }}">
 
                 <textarea name="description" id="" cols="30" rows="10" placeholder="Forniscici una descrizione della macchina">{{ old('description') }}</textarea>

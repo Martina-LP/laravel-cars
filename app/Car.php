@@ -12,6 +12,11 @@ class Car extends Model
         'src',
         'price',
         'model',
-        'cc'
+        'cc',
+        'category_id'
     ];
+
+    public function category() {
+        return $this->belongsTo('App\Category');
+    }
 }
