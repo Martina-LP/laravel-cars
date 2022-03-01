@@ -45,12 +45,38 @@
 
                     @foreach ($categories as $category)
                     <option value="{{ $category->id }}" {{ old('category_id', $car->category_id) == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                
+
                     @endforeach
 
                 </select>
 
                 <input type="text" name="cc" placeholder="Che cilindrata ha?" value="{{ old('cc') ? old('cc') : $car->cc }}">
+
+                <div class="optionals">
+                    Optionals
+                </div>
+
+                <div>
+                    @foreach ($optionals as $optional)
+
+                        <label for="optional-{{ $optional->id }}">
+                            {{ $optional->name }}
+                        </label>
+
+                        @if ($errors->any())
+                                <input {{ in_array($optional->id, old('optionals', [])) ? 'checked' : '' }} type="checkbox" value="{{ $optional->id }}" id="optionals-{{ $optional->id }}" name="optionals[]">
+                                <label for="optional-{{ $optional->id }}">
+                                    {{ $optional->name }}
+                                </label>
+                            @else
+                                <input {{ $car->optionals->contains($optional) ? 'checked' : '' }} type="checkbox" value="{{ $optional->id }}" id="optionals-{{ $optional->id }}" name="optionals[]">
+                                <label for="optional-{{ $optional->id }}">
+                                    {{ $optional->name }}
+                                </label>
+                        @endif
+
+                    @endforeach
+                </div>
 
                 <textarea name="description" id="" cols="30" rows="10" placeholder="Forniscici una descrizione della macchina">{{ old('description') ? old('description') : $car->description }}"</textarea>
 

@@ -45,12 +45,26 @@
 
                     @foreach ($categories as $category)
                     <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                
+
                     @endforeach
 
                 </select>
 
                 <input type="text" name="cc" placeholder="Che cilindrata ha?" value="{{ old('cc') }}">
+
+                <div class="optionals">
+                    Optionals
+                </div>
+
+                <div>
+                    @foreach ($optionals as $optional)
+                        <input {{ in_array($optional->id, old('optionals', [])) ? 'checked' : '' }}
+                        type="checkbox" value="{{ $optional->id }}" id="optional-{{ $optional->id }}" name="optionals[]">
+                        <label for="optional-{{ $optional->id }}">
+                            {{ $optional->name }}
+                        </label>
+                    @endforeach
+                </div>
 
                 <textarea name="description" id="" cols="30" rows="10" placeholder="Forniscici una descrizione della macchina">{{ old('description') }}</textarea>
 

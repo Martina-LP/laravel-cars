@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Car;
 use App\Category;
+use App\Optional;
 use Illuminate\Support\Str;
 class CarController extends Controller
 {
@@ -30,10 +31,12 @@ class CarController extends Controller
     {
 
         $categories = Category::all();
+        $optionals = Optional::all();
 
         $data = [
 
-            'categories'=> $categories
+            'categories'=> $categories,
+            'optionals' => $optionals
 
         ];
 
@@ -60,6 +63,10 @@ class CarController extends Controller
 
         $new_car->save();
 
+        if(isset($form_data['optionals'])) {
+            $new_car->optionals()->sync($form_data['optionals']);
+        }
+
         return redirect()->route('admin.cars.show', ['car' => $new_car->id]);
     }
 
@@ -85,11 +92,13 @@ class CarController extends Controller
         $car = Car::findOrFail($id);
 
         $categories = Category::all();
+        $optionals = Optional::all();
 
         $data = [
 
             'car' => $car,
-            'categories'=> $categories
+            'categories'=> $categories,
+            'optionals' => $optionals
 
         ];
 
@@ -117,6 +126,12 @@ class CarController extends Controller
 
         $update_car->update($form_data);
 
+        if(isset($form_data['optionals'])) {
+            $update_car->optionals()->sync($form_data['optionals']);
+        } else {
+            $update_car->optionals()->sync([]);
+        }
+
         return redirect()->route('admin.cars.show', ['car' => $update_car->id]);
     }
 
@@ -129,6 +144,7 @@ class CarController extends Controller
     public function destroy($id)
     {
         $car_to_delete = Car::findOrFail($id);
+        $car_to_delete->optionals()->sync([]);
         $car_to_delete->delete();
 
         return redirect()->route('admin.cars.index');
@@ -145,7 +161,8 @@ class CarController extends Controller
         'price' => 'required|max:14',
         'model' => 'required|max:100',
         'cc' => 'required|max:10',
-        'category_id' => 'exists:categories,id|nullable'
+        'category_id' => 'exists:categories,id|nullable',
+        'optionals' => 'exists:optionals,id'
         ];
     }
 
@@ -154,7 +171,7 @@ class CarController extends Controller
 
         $slug = Str::slug($brand);
         $slug_base = $slug;
-        
+
         $car_found = Car::where('slug', '=', $slug)->first();
         $counter = 1;
         while($car_found) {

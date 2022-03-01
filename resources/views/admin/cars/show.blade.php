@@ -26,6 +26,15 @@
                 <div class="price">
                     {{$car['price']}} $
                 </div>
+                <div class="optional">
+                    Optionals:
+                    @forelse ($car->optionals as $optional)
+                    {{ $optional->name }}{{ !$loop->last ? ',' : '' }}
+                    @empty
+                        nessuno
+                    @endforelse
+
+                </div>
                 <div class="description">
                     {{$car['description']}}
                 </div>
