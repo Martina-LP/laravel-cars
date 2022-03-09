@@ -60,14 +60,6 @@ return [
     [
         "brand" => "Porsche",
         "description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque, nisl sed pulvinar condimentum, quam magna dignissim arcu, vitae hendrerit dolor magna sit amet leo. Praesent pretium nunc velit, pulvinar fermentum massa volutpat quis. Nam ut odio semper, tempus magna et, tristique justo. Duis a elementum lacus. Ut pretium tortor id enim interdum, sed tempor ligula malesuada. Morbi nisl sapien, euismod ut feugiat a, gravida sed justo. Ut ut dui non risus volutpat maximus. Sed turpis diam, rhoncus sit amet posuere rutrum, laoreet eget tellus. In nulla sapien, suscipit ut ipsum in, malesuada dictum diam. Integer porta ex elit, placerat elementum tellus eleifend ut. Sed aliquam nulla sit amet massa feugiat, sit amet lobortis sapien faucibus. Nulla tempus eros vel dolor aliquam, at cursus lorem scelerisque.",
-        "src" => "https://c8.alamy.com/compit/pktbkj/15-settembre-2018-2019-porsche-911-gt3-rs-viene-fornito-in-dotazione-con-un-4-0-litri-boxer-6-hp-520-in-lucertola-verde-pktbkj.jpg",
-        "price" => "400000",
-        "model" => "Porsche GT3 RS",
-        "cc" => "250cc"
-    ],
-    [
-        "brand" => "Porsche",
-        "description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque, nisl sed pulvinar condimentum, quam magna dignissim arcu, vitae hendrerit dolor magna sit amet leo. Praesent pretium nunc velit, pulvinar fermentum massa volutpat quis. Nam ut odio semper, tempus magna et, tristique justo. Duis a elementum lacus. Ut pretium tortor id enim interdum, sed tempor ligula malesuada. Morbi nisl sapien, euismod ut feugiat a, gravida sed justo. Ut ut dui non risus volutpat maximus. Sed turpis diam, rhoncus sit amet posuere rutrum, laoreet eget tellus. In nulla sapien, suscipit ut ipsum in, malesuada dictum diam. Integer porta ex elit, placerat elementum tellus eleifend ut. Sed aliquam nulla sit amet massa feugiat, sit amet lobortis sapien faucibus. Nulla tempus eros vel dolor aliquam, at cursus lorem scelerisque.",
         "src" => "https://www.autoblog.it/app/uploads/2021/07/porsche-macan-gts-2022-1600-09.jpeg",
         "price" => "250000",
         "model" => "Macan",
