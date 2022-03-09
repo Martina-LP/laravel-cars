@@ -13,7 +13,9 @@
             <div class="single-car">
                 <a href="{{  route('admin.cars.show', ['car' => $car->id]) }}">
                     <div class="car-src">
-                        <img src="{{$car->src}}" alt="{{$car->brand}}">
+                        @if ($car->src)
+                            <img src="{{$car->src}}" alt="{{$car->brand}}">
+                        @endif
                     </div>
                     <div class="car-brand">
                         {{$car->brand}}
