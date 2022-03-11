@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Car;
 use App\Category;
 use App\Optional;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 class CarController extends Controller
 {
@@ -60,6 +61,12 @@ class CarController extends Controller
         $new_car->fill($form_data);
 
         $new_car->slug = $this->getUniqueSlugFromBrand($new_car->brand);
+        
+
+        if (isset($form_data['src'])) {
+            $img_path = Storage::put('src', $form_data['src']);
+            $new_car->src = url('storage/'. $img_path);
+        }
 
         $new_car->save();
 
@@ -122,6 +129,14 @@ class CarController extends Controller
 
         if($form_data['brand'] != $update_car->brand ) {
             $form_data['slug'] = $this->getUniqueSlugFromBrand($form_data['brand']);
+        }
+
+        if ($form_data['src']) {
+            if ($update_car->src) {
+                Storage::delete($update_car->src);
+            }
+            $img_path = Storage::put('src', $form_data['src']);
+            $form_data['src'] = url('storage/'.$img_path);
         }
 
         $update_car->update($form_data);

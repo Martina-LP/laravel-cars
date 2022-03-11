@@ -24,14 +24,15 @@
                 @endif
             </div>
 
-            <form action="{{ route('admin.cars.store') }}" method="post">
+            <form action="{{ route('admin.cars.store') }}" method="post" enctype="multipart/form-data">
 
                 @csrf
                 @method('POST')
 
                 <input type="text" name="brand" placeholder="Brand dell'auto?" value="{{ old('brand') }}">
-
-                <input type="text" name="src" placeholder="Inserisci la copertina della macchina" value="{{ old('src') }}">
+                
+                <label for="src">Carica Immagine</label>
+                <input type="file" name="src" id="src">
 
                 <input type="text" name="price" placeholder="Quanto costa la tua macchina?" value="{{ old('price') }}">
 

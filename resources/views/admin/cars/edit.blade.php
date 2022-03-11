@@ -24,14 +24,20 @@
                 @endif
             </div>
 
-            <form action="{{ route('admin.cars.update', ['car' => $car->id]) }}" method="post">
+            <form action="{{ route('admin.cars.update', ['car' => $car->id]) }}" method="post" enctype="multipart/form-data">
 
                 @csrf
                 @method('PUT')
 
-                <input type="text" name="brand" placeholder="Brand dell'auto?" value="{{ old('brand') ? old('brand') : $car->brand }}"">
+                <input type="text" name="brand" placeholder="Brand dell'auto?" value="{{ old('brand') ? old('brand') : $car->brand }}">
 
-                <input type="text" name="src" placeholder="Inserisci la copertina della macchina" value="{{ old('src') ? old('src') : $car->src }}">
+                <label for="src">Carica Immagine</label>
+                <input type="file" name="src" id="src">
+                @if($car->src)
+                    <div>
+                        <img class="w-50" src="{{asset($car->src)}}" alt="{{$car->model}}">
+                    </div>
+                @endif
 
                 <input type="text" name="price" placeholder="Quanto vuoi far pagare la tua macchina?" value="{{ old('price') ? old('price') : $car->price }}">
 

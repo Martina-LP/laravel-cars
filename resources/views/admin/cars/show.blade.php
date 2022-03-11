@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page_title')
-    Comic
+    Guarda la tua {{$car->model}}
 @endsection
 
 @section('main_content')
@@ -9,7 +9,7 @@
         <div class="container">
             <div class="product">
                 <div class="src">
-                    <img src="{{$car->src}}" alt="">
+                    <img src="{{asset($car->src)}}" alt="{{$car->model}}">
                 </div>
                 <div class="title">
                     {{$car->brand}}
